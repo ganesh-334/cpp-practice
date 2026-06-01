@@ -2,6 +2,7 @@
 using namespace std;
 int main()
 {
+    //program to check both upper and lower case
     string str;
     cin>>str;
     int flag=0;
