@@ -1,28 +1,21 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
 using namespace std;
-
+ 
 int main() {
-    int N;
-    cin>>N;
-    vector<int> X(N),P(N+1,0);
-    for(int i=0;i<N;i++){
-        cin>>X[i];
-    }
+    int N,Q;
+    cin>>N>>Q;;
+    vector<long long int> in(N+1,0);
     for(int i=1;i<=N;i++){
-        cin>>P[i];
-        P[i]=P[i]+P[i-1];
+        long long int t;
+        cin>>t;
+        in[i]+=in[i-1]+t;
     }
-    int Q;cin>>Q;
     while(Q--){
-        int lt,rt; cin>>lt>>rt;
+        int lt,rt;
+        cin>>lt>>rt;
         long long int ans=0;
-        auto lb=lower_bound(X.begin(),X.end(),lt);
-        auto ub=upper_bound(X.begin(),X.end(),rt);
-        lt=lb-X.begin();
-        rt=ub-X.begin();
-        ans=P[rt]-P[lt];
+        ans=in[rt]-in[lt-1];
         cout<<ans<<endl;
     }
 }
