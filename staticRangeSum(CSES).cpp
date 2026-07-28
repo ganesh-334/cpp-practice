@@ -16,7 +16,8 @@ int main() {
     }
     int Q;cin>>Q;
     while(Q--){
-        int ans,lt,rt; cin>>lt>>rt;
+        int lt,rt; cin>>lt>>rt;
+        long long int ans=0;
         auto lb=lower_bound(X.begin(),X.end(),lt);
         auto ub=upper_bound(X.begin(),X.end(),rt);
         lt=lb-X.begin();
